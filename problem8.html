@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// Write a function which takes no input and returns an array of 10 distinct randomly generated integers between 1 and 100.
+
+
+		function generateNumbers() {
+			var numbers = [];
+			var number;
+
+			for (var i = 1; i < 11; i++) {
+				number = Math.floor((Math.random() * 100) + 1);
+				if (numbers.indexOf(numbers[i]) === -1) {
+					numbers.push(number);
+				}
+			}
+			return numbers;
+		}
+
+		console.log(generateNumbers());
+		
+	</script>
+</body>
+</html>

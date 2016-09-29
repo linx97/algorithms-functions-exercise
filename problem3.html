@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// Write a function which takes an array of integers > 0 and returns the first integer which does not appear in that array.
+
+
+		test = [1, 2, 3, 4, 6, 7, 8, 9];
+
+
+		function findMissingNum(array) {
+			var missingNum;
+
+			for (var i = 0; i < array.length; i++) {
+				if (missingNum === undefined) {
+					if (array[i] !== i + 1) {
+						missingNum = array[i] - 1;
+					}
+				}
+			}
+
+			console.log(missingNum);
+			
+		}
+
+		findMissingNum(test);
+
+	</script>
+</body>
+</html>

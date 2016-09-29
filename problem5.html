@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// Write function that translates a text to Pig Latin and back. English is translated to Pig Latin by taking the first letter of every word, moving it to the end of the word and adding "ay".
+
+		var test = "The quick brown fox jumped over the log";
+
+
+		var pigLatin = [];
+
+		function toPigLatin(input) {
+			var array = input.split(" ");
+
+			for(var i = 0; i < array.length; i++) {
+				var first = array[i].charAt(0);
+				var firstRemoved = array[i].slice(1, array[i].length);
+				firstRemoved += first + "ay";
+				pigLatin.push(firstRemoved);
+			}
+
+			pigLatin = pigLatin.join(" ");
+
+			return pigLatin;
+		}
+
+
+		console.log(toPigLatin(test));
+
+	</script>
+</body>
+</html>

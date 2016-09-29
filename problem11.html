@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// take in a string and remove spaces
+		// based on length, divide into sections of characters
+		// split into seperate arrays
+		// reprint string in new order
+
+
+		var test = "Testing."
+
+
+		function encryptMessage(string) {
+			var array = string.split(" ");
+			var newString = array.join("");
+
+			var col1 = [];
+			var col2 = [];
+			var col3 = [];
+			var col4 = [];
+			var col5 = [];
+
+			var rewired = [];
+
+			if (newString.length < 10) {
+				for (var i = 0; i < newString.length; i++) {
+					if (i < 3) {
+						col1.push(newString[i]);
+					} else if (i < 6) {
+						col2.push(newString[i]);
+					} else {
+						col3.push(newString[i]);
+					}
+				}
+
+			} else if (newString.length < 17) {
+				for (var j = 0; j < newString.length; j++) {
+					if (j < 4) {
+						col1.push(newString[j]);
+					} else if (j < 8) {
+						col2.push(newString[j]);
+					} else if (j < 12) {
+						col3.push(newString[j]);
+					} else {
+						col4.push(newString[j]);
+					}
+				}
+
+			} else {
+				for (var k = 0; k < newString.length; k++) {
+					if (k < 5) {
+						col1.push(newString[k]);
+					} else if (k < 10) {
+						col2.push(newString[k]);
+					} else if (k < 15) {
+						col3.push(newString[k]);
+					} else if (k < 20) {
+						col4.push(newString[k]);
+					} else {
+						col5.push(newString[k]);
+					}
+				}
+			}
+			console.log(col1);
+
+			for (var l = 0; l < 5; l++) {
+				if(typeOf(col1[l]) === "string") {
+					rewired.push(col1[l] + col2[l] + col3[l] + col4[l] + col5[l]);
+				}
+				if(typeOf(col2[l]) === "string") {
+					rewired.push(col1[l] + col2[l] + col3[l] + col4[l] + col5[l]);
+				}
+				if(typeOf(col3[l]) === "string") {
+					rewired.push(col1[l] + col2[l] + col3[l] + col4[l] + col5[l]);
+				}
+				if(typeOf(col4[l]) === "string") {
+					rewired.push(col1[l] + col2[l] + col3[l] + col4[l] + col5[l]);
+				}
+				if(typeOf(col5[l]) === "string") {
+					rewired.push(col1[l] + col2[l] + col3[l] + col4[l] + col5[l]);
+				}
+			}
+
+
+			console.log(col1);
+			console.log(col2);
+			console.log(col3);
+			console.log(col4);
+			console.log(col5);
+
+			console.log(rewired);
+		}
+
+		encryptMessage(test);
+
+	</script>
+</body>
+</html>

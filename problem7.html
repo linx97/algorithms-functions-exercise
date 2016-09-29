@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// Write a function which takes in an array of numbers and a max cutoff value, and returns a new array with elements limited by the cutoff value.
+
+
+		var test = [1, 5, 6, 1, 2, 5, 6, 7, 8, 1] 
+
+
+		function cutOff(array, number) {
+			for(var i = 0; i < array.length; i++) {
+				if(array[i] > number) {
+					array[i] = number;
+				}
+			}
+			return array;
+		}
+
+
+		console.log(cutOff(test, 5));
+
+	</script>
+</body>
+</html>

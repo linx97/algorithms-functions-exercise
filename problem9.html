@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// Write a function which takes two sorted lists and merges them into a new sorted list.
+
+
+		var test1 = [1,2,5,6,9];
+		var test2 = [3,4,5,10];
+
+
+		function mergeAndSort(array1, array2) {
+			var newArray = [];
+
+			var i = 0;
+			var j = 0;
+
+			while(newArray.length < (array1.length + array2.length)) {
+				if (i >= array1.length){
+					newArray.push(array2[j]);
+				} else if ( j >= array2.length) {
+					newArray.push(array1[i]);
+				} else if (array1[i] <= array2[j]) {
+					newArray.push(array1[i]);
+					i++;
+				} else if (array2[j] < array1[i]) {
+					newArray.push(array2[j]);
+					j++;
+				}
+			}
+
+			return newArray;
+		}
+		
+
+		console.log(mergeAndSort(test1, test2));
+
+	</script>
+</body>
+</html>
