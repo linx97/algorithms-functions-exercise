@@ -12,91 +12,81 @@
 		// reprint string in new order
 
 
-		var test = "Testing."
 
+		function encryptMessage(input) {
+			var array = input.split(" ");
+			var string = array.join("");
 
-		function encryptMessage(string) {
-			var array = string.split(" ");
-			var newString = array.join("");
-
-			var col1 = [];
-			var col2 = [];
-			var col3 = [];
-			var col4 = [];
-			var col5 = [];
-
-			var rewired = [];
-
-			if (newString.length < 10) {
-				for (var i = 0; i < newString.length; i++) {
-					if (i < 3) {
-						col1.push(newString[i]);
-					} else if (i < 6) {
-						col2.push(newString[i]);
-					} else {
-						col3.push(newString[i]);
-					}
-				}
-
-			} else if (newString.length < 17) {
-				for (var j = 0; j < newString.length; j++) {
-					if (j < 4) {
-						col1.push(newString[j]);
-					} else if (j < 8) {
-						col2.push(newString[j]);
-					} else if (j < 12) {
-						col3.push(newString[j]);
-					} else {
-						col4.push(newString[j]);
-					}
-				}
-
-			} else {
-				for (var k = 0; k < newString.length; k++) {
-					if (k < 5) {
-						col1.push(newString[k]);
-					} else if (k < 10) {
-						col2.push(newString[k]);
-					} else if (k < 15) {
-						col3.push(newString[k]);
-					} else if (k < 20) {
-						col4.push(newString[k]);
-					} else {
-						col5.push(newString[k]);
-					}
-				}
-			}
-			console.log(col1);
-
-			for (var l = 0; l < 5; l++) {
-				if(typeOf(col1[l]) === "string") {
-					rewired.push(col1[l] + col2[l] + col3[l] + col4[l] + col5[l]);
-				}
-				if(typeOf(col2[l]) === "string") {
-					rewired.push(col1[l] + col2[l] + col3[l] + col4[l] + col5[l]);
-				}
-				if(typeOf(col3[l]) === "string") {
-					rewired.push(col1[l] + col2[l] + col3[l] + col4[l] + col5[l]);
-				}
-				if(typeOf(col4[l]) === "string") {
-					rewired.push(col1[l] + col2[l] + col3[l] + col4[l] + col5[l]);
-				}
-				if(typeOf(col5[l]) === "string") {
-					rewired.push(col1[l] + col2[l] + col3[l] + col4[l] + col5[l]);
-				}
-			}
-
-
-			console.log(col1);
-			console.log(col2);
-			console.log(col3);
-			console.log(col4);
-			console.log(col5);
-
-			console.log(rewired);
+			seperateLetters(string);
 		}
 
-		encryptMessage(test);
+		function seperateLetters(string) {
+			var newArray = [[], [], [], [], []];
+
+			if (string.length < 10) {
+				for (var i = 0; i < string.length; i++) {
+					if (i < 3) {
+						newArray[0].push(string[i]);
+					} else if (i < 6) {
+						newArray[1].push(string[i]);
+					} else {
+						newArray[2].push(string[i]);
+					}
+				}
+			} else if (string.length < 20) {
+				for (var i = 0; i < string.length; i++) {
+					if (i < 4) {
+						newArray[0].push(string[i]);
+					} else if (i < 8) {
+						newArray[1].push(string[i]);
+					} else if (i < 12) {
+						newArray[2].push(string[i]);
+					} else {
+						newArray[3].push(string[i]);
+					}
+				}
+			} else {
+				for (var i = 0; i < string.length; i++) {
+					if (i < 5) {
+						newArray[0].push(string[i]);
+					} else if (i < 10) {
+						newArray[1].push(string[i]);
+					} else if (i < 15) {
+						newArray[2].push(string[i]);
+					} else if (i < 20) {
+						newArray[3].push(string[i]);
+					} else {
+						newArray[4].push(string[i]);
+					}
+				}
+			} 
+			reorganize(newArray);
+		}
+
+				//             newArray[0][0] newArray[1][0]
+				// var newArray = [["h", "e", "l"], ["l", "o"], [], [], []];
+		function reorganize(array) {
+			var secretMessage = [];
+
+			for (var l = 0; l < array.length; l++) {
+				var newWord = [];
+				for (var a = 0; a < array[l].length; a++) {
+
+					if (typeof(array[a][l]) === "string") {
+						newWord.push(array[a][l]);
+					}
+				}
+				newWord = newWord.join("");
+				secretMessage.push(newWord);
+
+			}
+			secretMessage = secretMessage.join(" ");
+
+			console.log(secretMessage);
+		}
+
+
+		encryptMessage("hello there crazy person");
 
 	</script>
 </body>
